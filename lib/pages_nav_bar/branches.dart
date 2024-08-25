@@ -1,8 +1,5 @@
-
 import 'package:almokhtabarlab/custom_widgets/customappbar.dart';
-import 'package:almokhtabarlab/store_data/branches_locations.dart';
 import 'package:almokhtabarlab/store_data/get_branches_location.dart';
-import 'package:almokhtabarlab/store_data/store_branches_location.dart';
 import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
@@ -16,11 +13,7 @@ class Branches extends StatefulWidget {
 
 class _BranchesState extends State<Branches> {
 
-@override
-  void initState() {
-    super.initState();
-    saveBranches(branchesDetails); // Call the function to store data
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +40,7 @@ class _BranchesState extends State<Branches> {
 
             ElevatedButton(
               onPressed: (){
+
                Navigator.pushNamed(context, 'nearbybranches');
               }
             , child: const Text('show nearby branches ')

@@ -14,7 +14,7 @@ Future<List<BrancheData>> readBranches() async {
     return BrancheData.fromMap(doc.data() as Map<String, dynamic>);
   }).toList();
   
-  print(branches);
+  
   return branches;
 }
 
