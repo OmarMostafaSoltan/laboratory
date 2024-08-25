@@ -1,20 +1,13 @@
 import 'package:almokhtabarlab/custom_widgets/customappbar.dart';
 import 'package:almokhtabarlab/store_data/get_branches_location.dart';
+import 'package:almokhtabarlab/store_data/user_location.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 
-class Branches extends StatefulWidget {
+class Branches extends StatelessWidget {
    const Branches({super.key});
-
-  @override
-  State<Branches> createState() => _BranchesState();
-}
-
-class _BranchesState extends State<Branches> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -39,8 +32,9 @@ class _BranchesState extends State<Branches> {
             ),
 
             ElevatedButton(
-              onPressed: (){
-
+              onPressed: () async {
+                Position position = await UserLocation().getCurrentLocation();
+                print ("================================= Longitrde : ${position.longitude}\nLatidude: ${position.latitude}");
                Navigator.pushNamed(context, 'nearbybranches');
               }
             , child: const Text('show nearby branches ')
