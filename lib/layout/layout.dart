@@ -1,10 +1,10 @@
 
-import 'package:almokhtabarlab/layout/cubit/navigation_cubit.dart';
-import 'package:almokhtabarlab/pages_nav_bar/about.dart';
-import 'package:almokhtabarlab/pages_nav_bar/branches.dart';
-import 'package:almokhtabarlab/pages_nav_bar/homepage.dart';
-import 'package:almokhtabarlab/pages_nav_bar/more.dart';
-import 'package:almokhtabarlab/pages_nav_bar/search.dart';
+import 'package:al_ansary/layout/cubit/navigation_cubit.dart';
+import 'package:al_ansary/pages_nav_bar/about.dart';
+import 'package:al_ansary/pages_nav_bar/branches.dart';
+import 'package:al_ansary/pages_nav_bar/homepage.dart';
+import 'package:al_ansary/pages_nav_bar/more.dart';
+import 'package:al_ansary/pages_nav_bar/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

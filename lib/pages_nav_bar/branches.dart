@@ -1,6 +1,6 @@
-import 'package:almokhtabarlab/custom_widgets/customappbar.dart';
-import 'package:almokhtabarlab/store_data/get_branches_location.dart';
-import 'package:almokhtabarlab/store_data/user_location.dart';
+import 'package:al_ansary/custom_widgets/customappbar.dart';
+import 'package:al_ansary/store_data/get_branches_location.dart';
+import 'package:al_ansary/store_data/user_location.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 // import 'package:url_launcher/url_launcher.dart';
@@ -35,7 +35,10 @@ class Branches extends StatelessWidget {
               onPressed: () async {
                 Position position = await UserLocation().getCurrentLocation();
                 print ("================================= Longitrde : ${position.longitude}\nLatidude: ${position.latitude}");
-               Navigator.pushNamed(context, 'nearbybranches');
+               Navigator.pushNamed(context, 'nearbybranches',arguments: {
+        'latitude': position.latitude,
+        'longitude': position.longitude,
+      });
               }
             , child: const Text('show nearby branches ')
             ),

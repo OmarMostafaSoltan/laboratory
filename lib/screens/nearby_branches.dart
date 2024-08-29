@@ -1,7 +1,8 @@
-import 'package:almokhtabarlab/custom_widgets/customappbar.dart';
-import 'package:almokhtabarlab/store_data/branches_locations.dart';
-import 'package:almokhtabarlab/store_data/get_branches_location.dart';
+import 'package:al_ansary/custom_widgets/customappbar.dart';
+import 'package:al_ansary/store_data/branches_locations.dart';
+import 'package:al_ansary/store_data/get_branches_location.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NearbyBranches extends StatelessWidget {
@@ -11,6 +12,14 @@ class NearbyBranches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Retrieve the arguments passed to this route
+    final Map<String, double>? args = ModalRoute.of(context)?.settings.arguments as Map<String, double>?;
+
+    double? latitude = args?['latitude'];
+    double? longitude = args?['longitude'];
+
+
+
     return SafeArea(
         child: Scaffold(
       body: Column(
@@ -33,11 +42,28 @@ class NearbyBranches extends StatelessWidget {
                       child:
                           Text('No branches available')); // Handle empty data
                 } else {
-                  final branches = snapshot.data!;
+                  final branches = snapshot.data!
+                  .map((branch) {
+                          double distance = Geolocator.distanceBetween(
+                            latitude!,
+                            longitude!,
+                            branch.latitude,
+                            branch.longitude,
+                          );
+                           double distanceInKilometers = distance / 1000;
+                          return {'branch': branch, 'distance': distanceInKilometers};
+                        })
+                        .toList();
+
+                         // Sort by distance (ascending)
+                    branches.sort((a, b) => (a['distance'] as double).compareTo(b['distance'] as double));
+
                   return ListView.builder(
                     itemCount: branches.length,
                     itemBuilder: (context, index) {
-                      final branch = branches[index];
+
+                      final branch = branches[index]['branch'] as BrancheData;
+                        final distance = branches[index]['distance'] as double;
                       return Card(
                         margin:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -63,7 +89,7 @@ class NearbyBranches extends StatelessWidget {
                                   ElevatedButton.icon(
                                     onPressed: () async {
                                       final Uri url =
-                                          Uri.parse(branches[index].url);
+                                          Uri.parse(branch.url);
                                       if (await canLaunchUrl(url)) {
                                         await launchUrl(url);
                                       } else {
@@ -94,6 +120,9 @@ class NearbyBranches extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                               SizedBox(height: 8),
+                                 // Display distance in kilometers
+                                Text('Distance: ${distance.toStringAsFixed(2)} km'),
                             ],
                           ),
                         ),

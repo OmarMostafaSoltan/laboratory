@@ -1,13 +1,13 @@
-import 'package:almokhtabarlab/pages_nav_bar/homepage.dart';
-import 'package:almokhtabarlab/layout/layout.dart';
-import 'package:almokhtabarlab/notificationpage.dart';
-import 'package:almokhtabarlab/pages_list/analysisandpackages.dart';
-import 'package:almokhtabarlab/pages_list/approved.dart';
-import 'package:almokhtabarlab/pages_list/bookinghomevisit.dart';
-import 'package:almokhtabarlab/pages_list/myvisits.dart';
-import 'package:almokhtabarlab/pages_list/points.dart';
-import 'package:almokhtabarlab/screens/nearby_branches.dart';
-import 'package:almokhtabarlab/shoppingcart.dart';
+import 'package:al_ansary/layout/layout.dart';
+import 'package:al_ansary/pages_nav_bar/homepage.dart';
+import 'package:al_ansary/notificationpage.dart';
+import 'package:al_ansary/pages_list/analysisandpackages.dart';
+import 'package:al_ansary/pages_list/approved.dart';
+import 'package:al_ansary/pages_list/bookinghomevisit.dart';
+import 'package:al_ansary/pages_list/myvisits.dart';
+import 'package:al_ansary/pages_list/points.dart';
+import 'package:al_ansary/screens/nearby_branches.dart';
+import 'package:al_ansary/shoppingcart.dart';
 import 'package:flutter/material.dart';
 
 final Map<String,WidgetBuilder> routes ={

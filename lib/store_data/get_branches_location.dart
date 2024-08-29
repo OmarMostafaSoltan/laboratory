@@ -1,6 +1,6 @@
 
 
-import 'package:almokhtabarlab/store_data/branches_locations.dart';
+import 'package:al_ansary/store_data/branches_locations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<List<BrancheData>> readBranches() async {
