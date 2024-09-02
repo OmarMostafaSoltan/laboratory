@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String title;
@@ -6,38 +7,40 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 8.0),
-      child: Container(
-        color: Colors.white,
-        width: double.infinity,
-        height: 45,
+    return Container(
+      color: Colors.white,
+      width: double.infinity,
+      height: 45.h, // Scaled height
+      child: Padding(
+        padding:  EdgeInsets.only(left :12.w),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start, // Space between children
           children: [
-            Stack(alignment: AlignmentDirectional.centerEnd, children: [
-              IconButton(
-                  iconSize: 25,
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'notifications');
-                  },
-                  icon: const Icon(Icons.notifications_active_outlined)),
-              SizedBox(
-                width: 10,
-                child: IconButton(
-                    iconSize: 25,
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'shoppingcard');
-                    },
-                    icon: const Icon(Icons.shopping_cart_checkout_outlined)),
+            GestureDetector(
+              onTap: (){Navigator.pushNamed(context, 'notifications');} ,
+              child: Icon(
+                size: 25.w,
+                Icons.notifications_active_outlined,
               ),
-            ]),
-            const SizedBox(
-              width: 80,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(title),
+            SizedBox(width: 6.w,),
+            GestureDetector(
+              onTap: (){Navigator.pushNamed(context, 'shoppingcard');} ,
+              child:  Icon(
+                size: 25.w,
+                Icons.shopping_cart_checkout_outlined,
+              ),
+            ),
+           
+            SizedBox(
+              width: 60.w, // Scaled spacing
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18.sp, // Scaled text size
+                color: Color(0xFF002F5D)
+              ),
             ),
           ],
         ),
