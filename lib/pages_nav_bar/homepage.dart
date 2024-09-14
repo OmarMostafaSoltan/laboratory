@@ -14,8 +14,8 @@ class HomePage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: 
-        
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
               height: 500.h, // Scaled height
               width: 400.w,  // Scaled width
               child: ListTileTheme(
-                tileColor: Color(0xFF002F5D),
+                tileColor: const Color(0xff34c4c4),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.r), // Scaled border radius
                 ),
@@ -49,20 +49,19 @@ class HomePage extends StatelessWidget {
                     return Padding(
                       padding: EdgeInsets.all(5.0.w), // Scaled padding
                       child: ListTile(
-                        
                         leading: Icon(
                           itemServices['icon'],
                           size: 24.sp,
-                          color: Colors.white, // Scaled icon size
+                          color: const Color(0xFF002F5D), // Scaled icon size
                         ),
                         trailing: Icon(
                           Icons.arrow_forward,
-                          color: Colors.white,
+                          color: const Color(0xFF002F5D),
                           size: 24.sp, // Scaled icon size
                         ),
                         title: Text(
                           itemServices['title'],
-                          style: TextStyle(fontSize: 16.sp,color: Colors.white), // Scaled text size
+                          style: TextStyle(fontSize: 16.sp,color: const Color(0xFF002F5D)), // Scaled text size
                         ),
                         onTap: () {
                           Navigator.pushNamed(context, itemServices['route']);
@@ -73,6 +72,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+           
           ],
         ),
       ),

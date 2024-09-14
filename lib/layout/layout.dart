@@ -50,29 +50,29 @@ class Layout extends StatelessWidget {
                   NavigationDestination(
                     icon: Icon(Icons.home_outlined, size: 24.sp),
                     label: 'Home',
-                    selectedIcon: Icon(Icons.home_outlined, size: 20.sp,color: Color(0xFF002F5D),),
+                    selectedIcon: Icon(Icons.home_outlined, size: 20.sp,color: const Color(0xFF002F5D),),
                     
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.search_outlined, size: 24.sp),
                     label: 'Search',
                     
-                    selectedIcon: Icon(Icons.search_outlined, size: 20.sp,color: Color(0xFF002F5D),),
+                    selectedIcon: Icon(Icons.search_outlined, size: 20.sp,color: const Color(0xFF002F5D),),
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.info_outline, size: 24.sp),
                     label: 'About',
-                    selectedIcon: Icon(Icons.info_outline, size: 20.sp,color:Color(0xFF002F5D)),
+                    selectedIcon: Icon(Icons.info_outline, size: 20.sp,color:const Color(0xFF002F5D)),
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.location_city, size: 24.sp),
                     label: 'Branches',
-                    selectedIcon: Icon(Icons.location_on_outlined, size: 20.sp,color: Color(0xFF002F5D)),
+                    selectedIcon: Icon(Icons.location_on_outlined, size: 20.sp,color: const Color(0xFF002F5D)),
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.menu_outlined, size: 24.sp),
                     label: 'More',
-                    selectedIcon: Icon(Icons.menu_outlined, size: 20.sp,color: Color(0xFF002F5D),),
+                    selectedIcon: Icon(Icons.menu_outlined, size: 20.sp,color: const Color(0xFF002F5D),),
                   ),
                 ],
                 selectedIndex: state.selectedIndex,

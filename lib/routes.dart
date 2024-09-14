@@ -1,7 +1,7 @@
 import 'package:al_ansary/layout/layout.dart';
 import 'package:al_ansary/pages_nav_bar/homepage.dart';
 import 'package:al_ansary/notificationpage.dart';
-import 'package:al_ansary/pages_list/analysisandpackages.dart';
+import 'package:al_ansary/pages_list/analysis_and_packadges/analysisandpackages.dart';
 import 'package:al_ansary/pages_list/approved.dart';
 import 'package:al_ansary/pages_list/bookinghomevisit.dart';
 import 'package:al_ansary/pages_list/myvisits.dart';
@@ -16,7 +16,7 @@ final Map<String,WidgetBuilder> routes ={
         'nearbybranches': (context)=>  NearbyBranches(),
         'bookinghomevisit': (context)=> const Bookinghomevisit(),
         'myvisits': (context) => const Myvisits(),
-        'analysisandpackages' : (context) => const AnalysisAndPackages(),
+        'analysisandpackages' : (context) =>  const AnalysisAndPackages(),
         'points': (context) => const Points(),
         'approved' : (context)=> const Approved(),
         'notifications' : (context)=> const NotificationPage(),

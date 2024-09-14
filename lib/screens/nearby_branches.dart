@@ -1,6 +1,6 @@
 import 'package:al_ansary/custom_widgets/customappbar.dart';
-import 'package:al_ansary/store_data/branches_locations.dart';
-import 'package:al_ansary/store_data/get_branches_location.dart';
+import 'package:al_ansary/store_data/locations_data/branches_locations.dart';
+import 'package:al_ansary/store_data/locations_data/get_branches_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
@@ -85,6 +85,7 @@ class NearbyBranches extends StatelessWidget {
                         final distance =
                             branches[index]['distance'] as double;
                         return Card(
+                          color: const Color(0xff34c4c4),
                           margin: EdgeInsets.symmetric(
                             horizontal: 10.w,
                             vertical: 5.h,
@@ -108,6 +109,7 @@ class NearbyBranches extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16.sp,
+                                          color: const Color(0xFF002F5D)
                                         ),
                                         overflow: TextOverflow.ellipsis,
                                       ),
@@ -131,13 +133,16 @@ class NearbyBranches extends StatelessWidget {
                                       icon: Icon(
                                         Icons.directions,
                                         size: 20.w,
+                                        color: const Color(0xff34c4c4),
                                       ),
                                       label: Text(
                                         'Directions',
-                                        style: TextStyle(fontSize: 14.sp),
+                                        style: TextStyle(fontSize: 14.sp,
+                                        color: Colors.white 
+                                        ),
                                       ),
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.red,
+                                        backgroundColor: const Color(0xFF002F5D),
                                         padding: EdgeInsets.symmetric(
                                           horizontal: 12.w,
                                           vertical: 8.h,
@@ -176,7 +181,7 @@ class NearbyBranches extends StatelessWidget {
                                   'Distance: ${distance.toStringAsFixed(2)} km',
                                   style: TextStyle(
                                     fontSize: 14.sp,
-                                    color: Colors.black87,
+                                    color: const Color(0xFF002F5D),
                                   ),
                                 ),
                               ],

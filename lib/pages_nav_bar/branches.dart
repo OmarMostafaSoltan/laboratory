@@ -1,6 +1,5 @@
 import 'package:al_ansary/custom_widgets/customappbar.dart';
-import 'package:al_ansary/store_data/get_branches_location.dart';
-import 'package:al_ansary/store_data/user_location.dart';
+import 'package:al_ansary/store_data/locations_data/user_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
@@ -50,12 +49,12 @@ class Branches extends StatelessWidget {
                 });
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor:const Color(0xFF002F5D),
+                backgroundColor:const Color(0xff34c4c4),
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w), // Scale the button padding
               ),
               child: Text(
                 'Show nearby branches',
-                style: TextStyle(fontSize: 16.sp,color: Colors.white), // Scale the button text size
+                style: TextStyle(fontSize: 16.sp,color: const Color(0xFF002F5D)), // Scale the button text size
               ),
             ),
           ],
