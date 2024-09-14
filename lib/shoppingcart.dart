@@ -5,9 +5,11 @@ class ShoppingCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Shopping Cart'),
+    return  SafeArea(
+      child: Scaffold(
+        body: Container(
+          
+        )
       ),
     );
   }

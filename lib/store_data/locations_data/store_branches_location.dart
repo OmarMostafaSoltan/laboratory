@@ -1,4 +1,4 @@
-import 'package:al_ansary/store_data/branches_locations.dart';
+import 'package:al_ansary/store_data/locations_data/branches_locations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> saveBranches(List<BrancheData> branches) async {

@@ -1,43 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String title;
-  const CustomAppBar({super.key, required this.title});
+  final int selectedItemCount; // New optional parameter for item count
+
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.selectedItemCount = 0, // Default value is 0
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 8.0),
-      child: Container(
-        color: Colors.white,
-        width: double.infinity,
-        height: 45,
+    return Container(
+      color: Colors.white,
+      width: double.infinity,
+      height: 45.h, // Scaled height
+      child: Padding(
+        padding: EdgeInsets.only(left: 12.w),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start, // Align children
           children: [
-            Stack(alignment: AlignmentDirectional.centerEnd, children: [
-              IconButton(
-                  iconSize: 25,
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'notifications');
-                  },
-                  icon: const Icon(Icons.notifications_active_outlined)),
-              SizedBox(
-                width: 10,
-                child: IconButton(
-                    iconSize: 25,
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'shoppingcard');
-                    },
-                    icon: const Icon(Icons.shopping_cart_checkout_outlined)),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'notifications');
+              },
+              child: Icon(
+                size: 25.w,
+                Icons.notifications_outlined,
               ),
-            ]),
-            const SizedBox(
-              width: 80,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(title),
+            SizedBox(width: 6.w),
+            Stack(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'shoppingcard');
+                  },
+                  child: Icon(
+                    size: 25.w,
+                    Icons.sticky_note_2_outlined,
+                  ),
+                ),
+                // Badge for selected item count
+                if (selectedItemCount > 0) ...[
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      constraints: const BoxConstraints(
+                        minWidth: 16,
+                        minHeight: 16,
+                      ),
+                      child: Text(
+                        selectedItemCount.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
+                ]
+              ],
+            ),
+            SizedBox(width: 60.w), // Scaled spacing
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18.sp, // Scaled text size
+                color: Colors.black,
+              ),
             ),
           ],
         ),
